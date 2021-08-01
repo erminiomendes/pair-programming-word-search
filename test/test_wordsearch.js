@@ -3,7 +3,7 @@ const assert = chai.assert;
 
 const wordSearch = require('../wordsearch.js')
 
-describe("#wordSearch()", function() {
+describe("#wordSearch()", function() { 
   it("should return false if the word is not present", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
@@ -15,7 +15,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -34,5 +34,10 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+  
+  it("should return false if the matrix is empty", function() {
+    const result = wordSearch([] , 'XXXßß')
+    assert.isFalse(result);
   });
 });
